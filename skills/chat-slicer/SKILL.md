@@ -22,6 +22,7 @@ A raw expat chat export has tens of thousands of messages and does not fit in co
    ./scripts/slice.sh <export.json> _slices
    ```
    It reads `scripts/topics.json` (per-topic keyword regexes, RU+EN) and writes one slice per topic.
+   Noise control runs automatically: identical texts (ad reposts, forwards) are de-duped, and patterns from `scripts/spam.txt` are dropped.
 3. Report the per-topic message counts. Thin slices (< ~20 messages) mean the source chat is weak on that topic — flag it; don't invent content later.
 
 ## Message normalization
@@ -37,6 +38,7 @@ else "" end
 ## Extending
 
 - New topic → add a `"topic": "regex"` line to `scripts/topics.json`. Include RU, EN, and local-language terms (city names, local brands, carriers).
+- Ads leaking through → add a tight regex to `scripts/spam.txt` (e.g. a spammy rental bot's `@name`). Keep patterns precise; over-filtering drops real messages.
 - Other chat sources (Discord/WhatsApp) → normalize to `{ date, text }` and reuse the same slicer.
 
 ## Next stage
@@ -58,6 +60,6 @@ Hand the slices to **chat-analyzer** (stage 1).
 2. Запусти `./scripts/slice.sh <export.json> _slices` — он читает `scripts/topics.json` (регулярки RU+EN по темам).
 3. Покажи счётчики по темам. Тонкий срез (< ~20 сообщений) = чат слабо покрывает тему; помечай, не выдумывай.
 
-Текст сообщения собирай из `text_entities` (учитывает ссылки, эмодзи). Новая тема — добавь строку в `topics.json` с ключевыми словами на RU, EN и местном языке.
+Текст сообщения собирай из `text_entities` (учитывает ссылки, эмодзи). Шумоподавление включено автоматически: дубли (репосты рекламы) схлопываются, паттерны из `scripts/spam.txt` вырезаются. Новая тема — строка в `topics.json`; протекает реклама — добавь точный паттерн в `spam.txt`.
 
 Дальше — скилл **chat-analyzer** (этап 1).

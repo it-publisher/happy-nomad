@@ -28,7 +28,7 @@ Not another static "top 10 cities" listicle: **your** source chat, **current** p
 4. Fact-check verify, drop stale, mark confidence               (fact-checker)
 ```
 
-The big win is **stage 0**: a 20k+ message export never fits in a model's context. Scripts slice it by topic keywords first, so the model only reads relevant chunks.
+The big win is **stage 0**: a 20k+ message export never fits in a model's context. Scripts slice it by topic keywords first, so the model only reads relevant chunks. Duplicate ad reposts are collapsed and known spam patterns (`scripts/spam.txt`) are dropped on the way.
 
 ---
 
@@ -75,7 +75,7 @@ happy-nomad/
 │   ├── chat-analyzer/     # stage 1 — extraction
 │   ├── guide-builder/     # stages 2–3 — layout + assembly
 │   └── fact-checker/      # stage 4 — verification
-├── scripts/           # jq slicer + topic keyword config
+├── scripts/           # jq slicer + topic keywords + spam stop-list
 ├── templates/         # country folder skeleton (2 README modes + topic stubs)
 ├── examples/argentina/# a de-identified filled guide (reference output)
 ├── agents/openai.yaml # Codex adapter (other clients ignore it)

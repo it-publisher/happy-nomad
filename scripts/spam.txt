@@ -1,0 +1,21 @@
+# Spam / ad stop-list for the slicer (stage 0).
+# One case-insensitive regex per line. Blank lines and #-comments are ignored.
+# A message matching ANY line is dropped from every slice.
+#
+# Keep patterns TIGHT — over-filtering removes real messages.
+# This is a generic starter list; add chat-specific ad handles and brands
+# (e.g. a spammy rental bot's @name) as you notice them.
+#
+# --- generic ad phrasing ---
+под ключ
+оформление внж
+turnkey (relocation|residency)
+# --- promo signature clusters (ads love emoji walls) ---
+🛞
+🔥.*🔥
+# --- referral / booking CTAs repeated by ad bots ---
+забронировать (мото|авто|тур)
+book (your|the) (ride|scooter|car) now
+# --- example chat-specific handles (edit for your chat) ---
+rentvipcarargentina
+terra nostra
