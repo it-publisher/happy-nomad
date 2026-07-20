@@ -1,29 +1,23 @@
 # 💱 Currency exchange — Argentina
 
-> Source: expat Telegram chat · Updated: 2026-04 (illustrative) · Period: Dec 2025 – Apr 2026
+> Source: expat Telegram chat (772 msgs in slice, after filter) · Updated: 2026-04 · Period: Dec 2025 – Apr 2026
 
-## Rates
+## Rates (Dec 2025)
 
-- **Blue (parallel) rate**: ~1,420 ARS/$1 (Feb–Mar 2026). `⚠️ moves weekly`
-- Official rate runs well below the blue; locals price big items in USD.
+| Channel | Rate (ARS/$1) | Date |
+|---------|---------------|------|
+| USDT | ~1,500–1,530 | 2025-12-24 |
+| Cash (blue) | ~1,450 | 2025-12-24 |
+| Dólar MEP | ~1,470 | 2025-12-24 |
+| Shop "acceptamos dolares" | ~1,550 | 2025-12-01 |
 
-## Where to exchange
+`✅ confirmed (multiple msgs)` — but `⚠️ rates move weekly, treat as a Dec-2025 snapshot only`.
 
-- Telegram exchangers and P2P are the common expat route for the blue rate.
-- Bring **fresh, large USD bills** — worn/small notes get worse rates.
+## Notes
 
-## Cashless options
+- USDT trades above cash; MEP sits between. Shops accepting USD sometimes beat the cash rate.
+- `❓ needs check`: legal/tax mechanics of each channel weren't covered in this slice — verify locally.
 
-- Non-residents: card-to-card RUB transfers to an exchanger, receiving pesos in cash or on a no-ID prepaid card is a common workaround.
-- Local bank / wallet accounts usually require a local ID (DNI).
+## Filter note
 
-## Crypto
-
-- USDT/stablecoins via P2P are widely used; the exchanger holds the crypto, the user only sends a fiat transfer.
-
-## Recommendations
-
-- **Non-resident**: exchangers / P2P for the blue rate.
-- **After residency (DNI)**: on-exchange USD (e.g. "MEP") via a local broker app becomes the cheaper path.
-
-`❓ Exchange mechanics and legality shift often — verify the current setup locally before moving money.`
+Repeated motorcycle-rental ads (posted verbatim 3×) matched the currency keywords and were removed by de-dup + `spam.txt` before analysis.

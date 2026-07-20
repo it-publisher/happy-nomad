@@ -1,39 +1,23 @@
 # 🏠 Housing — Buenos Aires
 
-> Source: expat Telegram chat · Updated: 2026-04 (illustrative) · Period: Dec 2025 – Apr 2026
+> Source: expat Telegram chat (946 msgs in slice, after filter) · Updated: 2026-04 · Period: Dec 2025 – Apr 2026
 
-## Popular areas
+## Rent prices (Dec 2025)
 
-- **Palermo** — central, walkable, expat-heavy; priciest of the common picks.
-- **Belgrano / Núñez** — calmer, residential, good value; popular with families.
-- **Villa Crespo** — cheaper, next to Palermo, up-and-coming.
-
-## Rent prices
-
-| Type | Price/mo | Date | Area |
+| Type | Price/mo | Area | Date |
 |------|----------|------|------|
-| Studio | ~$350–400 | Dec 2025 | Palermo (older stock) |
-| 1-bed | ~$500–700 | Dec 2025 | Palermo |
-| Long-term | varies | Q1 2026 | market-wide, USD-denominated |
+| 1-bed w/ pool | ~$700 | Palermo | 2025-12-03 |
+| 2–3 room | ~$2,000–3,000 | BA (family segment) | 2025-12-07 |
+| Family rental | ~$3,500 | BA | 2025-12-07 |
+| Short-term, 3 people | ~$400 | Mar del Plata | 2025-12-05 |
 
-`⚠️ single-source figures — confirm current listings`
+`⚠️ single-source figures — confirm against live listings`. A claim of Palermo at ~$350 was disputed in-thread → treat the low end as optimistic.
 
 ## Rental terms
 
-- Deposit: typically 1 month.
-- Agent fee: ~1 month (long-term contracts).
-- First-month cash-out: ~3× rent (rent + deposit + agent).
+- One reported Palermo deal: deposit = half a month, no agent fee. `⚠️ single mention`
+- Puerto Madero often wants the full lease term upfront + one month deposit. `⚠️ single mention`
 
-## Utilities
+## Filter note
 
-- "Expensas" (building fees) can add $100–500/mo depending on the building.
-
-## Where to search
-
-- Short-term: Airbnb, Booking.
-- Long-term: local sites + Telegram groups (see Resources).
-
-## Tips
-
-- Fresh USD bills negotiate better on informal long-term deals.
-- Verify the landlord and building before paying any deposit (anti-scam).
+A Spain-residency ad ("под ключ") and repeated rental-bot posts matched the housing keywords → dropped by `spam.txt`, not counted as facts.
