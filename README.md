@@ -21,7 +21,7 @@ Not another static "top 10 cities" listicle: **your** source chat, **current** p
 ## How it works — the 5-stage pipeline
 
 ```text
-0. Slice      jq cuts the JSON export into per-topic slices     (scripts + chat-slicer)
+0. Slice      Nushell cuts the JSON export into per-topic slices (scripts + chat-slicer)
 1. Extract    pull facts with dates and quotes                  (chat-analyzer)
 2. Lay out    facts → topic .md files from templates            (guide-builder)
 3. Assemble   build README — guide or personal mode             (guide-builder)
@@ -35,6 +35,9 @@ The big win is **stage 0**: a 20k+ message export never fits in a model's contex
 ## Quick start
 
 ```bash
+# 0. Install Nushell (the slicer runs on it) — https://www.nushell.sh/
+#    macOS: brew install nushell · Windows: winget install nushell · cargo: cargo install nu
+
 git clone https://github.com/<you>/happy-nomad
 cd happy-nomad
 
@@ -45,8 +48,7 @@ cp -r skills/* ~/.claude/skills/
 mkdir -p exports && cp ~/Downloads/result.json exports/chile.json
 
 # 3. Slice it by topic (stage 0)
-./scripts/slice.sh exports/chile.json _slices
-#    Prefer Nushell? `nu scripts/slice.nu exports/chile.json _slices` — byte-identical output.
+nu scripts/slice.nu exports/chile.json _slices
 
 # 4. Ask your agent
 #    "Build a country guide for Chile, mode: guide, period: last 6 months"
@@ -76,7 +78,7 @@ happy-nomad/
 │   ├── chat-analyzer/     # stage 1 — extraction
 │   ├── guide-builder/     # stages 2–3 — layout + assembly
 │   └── fact-checker/      # stage 4 — verification
-├── scripts/           # slice.sh (jq) + slice.nu (Nushell) + topic keywords + spam stop-list
+├── scripts/           # slice.nu (Nushell slicer) + topic keywords + spam stop-list
 ├── templates/         # country folder skeleton (2 README modes + topic stubs)
 ├── examples/argentina/# a de-identified filled guide (reference output)
 ├── agents/openai.yaml # Codex adapter (other clients ignore it)

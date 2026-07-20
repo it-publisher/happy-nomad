@@ -11,8 +11,8 @@ pipeline:
   - stage: 0
     id: chat-slicer
     skill: skills/chat-slicer/SKILL.md
-    summary: jq-slice the JSON export into per-topic text slices.
-    tool: scripts/slice.sh
+    summary: Slice the JSON export into per-topic text slices (Nushell).
+    tool: scripts/slice.nu
   - stage: 1
     id: chat-analyzer
     skill: skills/chat-analyzer/SKILL.md

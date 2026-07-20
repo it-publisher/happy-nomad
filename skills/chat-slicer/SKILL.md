@@ -1,6 +1,6 @@
 ---
 name: chat-slicer
-description: Stage 0 of the Happy Nomad pipeline. Slice a large Telegram/expat chat JSON export into per-topic text slices with jq, so later stages read only relevant messages instead of the whole export. Use when a chat export is too big to read directly (thousands of messages).
+description: Stage 0 of the Happy Nomad pipeline. Slice a large Telegram/expat chat JSON export into per-topic text slices with Nushell, so later stages read only relevant messages instead of the whole export. Use when a chat export is too big to read directly (thousands of messages).
 ---
 
 # chat-slicer — stage 0: preprocessing
@@ -16,24 +16,21 @@ A raw expat chat export has tens of thousands of messages and does not fit in co
 
 ## Procedure
 
-1. Confirm `jq` is available.
+1. Confirm Nushell (`nu`) is installed — https://www.nushell.sh/
 2. Run the bundled slicer:
-   ```bash
-   ./scripts/slice.sh <export.json> _slices
+   ```nu
+   nu scripts/slice.nu <export.json> _slices
    ```
    It reads `scripts/topics.json` (per-topic keyword regexes, RU+EN) and writes one slice per topic.
-   A Nushell port with byte-identical output is available: `nu scripts/slice.nu <export.json> _slices`.
    Noise control runs automatically: identical texts (ad reposts, forwards) are de-duped, and patterns from `scripts/spam.txt` are dropped.
 3. Report the per-topic message counts. Thin slices (< ~20 messages) mean the source chat is weak on that topic — flag it; don't invent content later.
 
 ## Message normalization
 
-Telegram `text` can be a string, an array (with links/emoji), or empty. Always build plain text from `text_entities` first:
+Telegram `text` can be a string, an array (with links/emoji), or empty. Always build plain text from `text_entities` first (Nushell):
 
-```jq
-if (.text_entities? | type) == "array" then ([.text_entities[].text] | join(""))
-elif (.text | type) == "string" then .text
-else "" end
+```nu
+if ($m.text_entities? != null) { $m.text_entities | get text | str join } else { $m.text? | default "" }
 ```
 
 ## Extending
@@ -57,8 +54,8 @@ Hand the slices to **chat-analyzer** (stage 1).
 
 Порядок:
 
-1. Проверь, что есть `jq`.
-2. Запусти `./scripts/slice.sh <export.json> _slices` — он читает `scripts/topics.json` (регулярки RU+EN по темам).
+1. Проверь, что установлен Nushell (`nu`) — https://www.nushell.sh/
+2. Запусти `nu scripts/slice.nu <export.json> _slices` — он читает `scripts/topics.json` (регулярки RU+EN по темам).
 3. Покажи счётчики по темам. Тонкий срез (< ~20 сообщений) = чат слабо покрывает тему; помечай, не выдумывай.
 
 Текст сообщения собирай из `text_entities` (учитывает ссылки, эмодзи). Шумоподавление включено автоматически: дубли (репосты рекламы) схлопываются, паттерны из `scripts/spam.txt` вырезаются. Новая тема — строка в `topics.json`; протекает реклама — добавь точный паттерн в `spam.txt`.

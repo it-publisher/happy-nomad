@@ -21,7 +21,7 @@
 ## Как это работает — пайплайн из 5 этапов
 
 ```text
-0. Нарезка    jq режет JSON-экспорт на срезы по темам          (скрипты + chat-slicer)
+0. Нарезка    Nushell режет JSON-экспорт на срезы по темам      (скрипты + chat-slicer)
 1. Извлечение факты с датами и цитатами                        (chat-analyzer)
 2. Раскладка  факты → тематические .md по шаблонам             (guide-builder)
 3. Сборка     README — режим guide или personal                (guide-builder)
@@ -35,6 +35,9 @@
 ## Быстрый старт
 
 ```bash
+# 0. Поставь Nushell (на нём работает слайсер) — https://www.nushell.sh/
+#    macOS: brew install nushell · Windows: winget install nushell · cargo: cargo install nu
+
 git clone https://github.com/<you>/happy-nomad
 cd happy-nomad
 
@@ -45,8 +48,7 @@ cp -r skills/* ~/.claude/skills/
 mkdir -p exports && cp ~/Downloads/result.json exports/chile.json
 
 # 3. Нарежь по темам (этап 0)
-./scripts/slice.sh exports/chile.json _slices
-#    Любишь Nushell? `nu scripts/slice.nu exports/chile.json _slices` — байт-в-байт тот же результат.
+nu scripts/slice.nu exports/chile.json _slices
 
 # 4. Дай команду агенту
 #    «Собери гайд по стране Чили, режим guide, период — последние 6 месяцев»
@@ -76,7 +78,7 @@ happy-nomad/
 │   ├── chat-analyzer/     # этап 1 — извлечение
 │   ├── guide-builder/     # этапы 2–3 — раскладка + сборка
 │   └── fact-checker/      # этап 4 — проверка
-├── scripts/           # slice.sh (jq) + slice.nu (Nushell) + ключевые слова + стоп-лист спама
+├── scripts/           # slice.nu (слайсер на Nushell) + ключевые слова + стоп-лист спама
 ├── templates/         # скелет папки страны (2 режима README + стабы тем)
 ├── examples/argentina/# обезличенный собранный гайд (эталон вывода)
 ├── agents/openai.yaml # адаптер для Codex (другие клиенты игнорируют)
