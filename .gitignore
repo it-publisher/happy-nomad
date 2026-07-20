@@ -1,6 +1,7 @@
 # Chat exports — never commit raw user data (may contain PII)
 *.json
 !examples/**/*.json
+!scripts/*.json          # config (topics.json), not user data
 exports/
 
 # Intermediate topic slices (pipeline stage 0)
