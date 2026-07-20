@@ -1,0 +1,12 @@
+{
+  "housing":       "аренд|депозит|снять|квартир|жиль[её]|expensas|alquiler|rent|deposit|apartment|lease|landlord",
+  "neighborhoods": "район|barrio|neighbo|безопасн|small crime|safe area|criminal|где жить|where to live",
+  "budget":        "бюджет|расход|прожит|в месяц|budget|cost of living|per month|monthly|expenses|how much",
+  "visa":          "виз[аоуы]|migraci|резиденц|residence|permit|overstay|оверстей|border run|визаран|\\bDNI\\b",
+  "currency":      "курс|обмен|blue|USDT|песо|dolar|dólar|exchange rate|\\bP2P\\b|crypto|\\bMEP\\b|cambio",
+  "internet":      "интернет|internet|Wi-?Fi|Мбит|Mbps|\\bSIM\\b|симк|eSIM|мобильн|carrier|оператор",
+  "food":          "цен[аы]|price|супермаркет|supermarket|продукт|grocery|мясо|meat|\\bкг\\b|\\bkg\\b",
+  "transport":     "метро|metro|автобус|\\bbus\\b|Uber|Cabify|такси|taxi|каршеринг|\\bSUBE\\b|транспорт|transit",
+  "healthcare":    "врач|doctor|клиник|clinic|страхов|insurance|аптек|pharmacy|hospital|госпитал|prepaga",
+  "resources":     "t\\.me|https?://|канал|channel|группа|\\bgroup\\b|чат|\\bchat\\b|контакт|contact"
+}
