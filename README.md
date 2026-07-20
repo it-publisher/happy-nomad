@@ -46,6 +46,7 @@ mkdir -p exports && cp ~/Downloads/result.json exports/chile.json
 
 # 3. Slice it by topic (stage 0)
 ./scripts/slice.sh exports/chile.json _slices
+#    Prefer Nushell? `nu scripts/slice.nu exports/chile.json _slices` — byte-identical output.
 
 # 4. Ask your agent
 #    "Build a country guide for Chile, mode: guide, period: last 6 months"
@@ -75,7 +76,7 @@ happy-nomad/
 │   ├── chat-analyzer/     # stage 1 — extraction
 │   ├── guide-builder/     # stages 2–3 — layout + assembly
 │   └── fact-checker/      # stage 4 — verification
-├── scripts/           # jq slicer + topic keywords + spam stop-list
+├── scripts/           # slice.sh (jq) + slice.nu (Nushell) + topic keywords + spam stop-list
 ├── templates/         # country folder skeleton (2 README modes + topic stubs)
 ├── examples/argentina/# a de-identified filled guide (reference output)
 ├── agents/openai.yaml # Codex adapter (other clients ignore it)

@@ -46,6 +46,7 @@ mkdir -p exports && cp ~/Downloads/result.json exports/chile.json
 
 # 3. Нарежь по темам (этап 0)
 ./scripts/slice.sh exports/chile.json _slices
+#    Любишь Nushell? `nu scripts/slice.nu exports/chile.json _slices` — байт-в-байт тот же результат.
 
 # 4. Дай команду агенту
 #    «Собери гайд по стране Чили, режим guide, период — последние 6 месяцев»
@@ -75,7 +76,7 @@ happy-nomad/
 │   ├── chat-analyzer/     # этап 1 — извлечение
 │   ├── guide-builder/     # этапы 2–3 — раскладка + сборка
 │   └── fact-checker/      # этап 4 — проверка
-├── scripts/           # jq-слайсер + ключевые слова + стоп-лист спама
+├── scripts/           # slice.sh (jq) + slice.nu (Nushell) + ключевые слова + стоп-лист спама
 ├── templates/         # скелет папки страны (2 режима README + стабы тем)
 ├── examples/argentina/# обезличенный собранный гайд (эталон вывода)
 ├── agents/openai.yaml # адаптер для Codex (другие клиенты игнорируют)

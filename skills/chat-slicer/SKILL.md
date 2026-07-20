@@ -22,6 +22,7 @@ A raw expat chat export has tens of thousands of messages and does not fit in co
    ./scripts/slice.sh <export.json> _slices
    ```
    It reads `scripts/topics.json` (per-topic keyword regexes, RU+EN) and writes one slice per topic.
+   A Nushell port with byte-identical output is available: `nu scripts/slice.nu <export.json> _slices`.
    Noise control runs automatically: identical texts (ad reposts, forwards) are de-duped, and patterns from `scripts/spam.txt` are dropped.
 3. Report the per-topic message counts. Thin slices (< ~20 messages) mean the source chat is weak on that topic — flag it; don't invent content later.
 
