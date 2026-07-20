@@ -1,0 +1,37 @@
+# Codex adapter for the Happy Nomad.
+# Clients that read the Agent Skills format (Claude Code, etc.) use skills/*/SKILL.md
+# directly and can ignore this file. This manifest maps the same pipeline for Codex.
+
+name: happy-nomad
+description: >
+  Turn an expat chat export into a structured, fact-checked country guide.
+  Runs a 5-stage pipeline: slice → extract → lay out → assemble → fact-check.
+
+pipeline:
+  - stage: 0
+    id: chat-slicer
+    skill: skills/chat-slicer/SKILL.md
+    summary: jq-slice the JSON export into per-topic text slices.
+    tool: scripts/slice.sh
+  - stage: 1
+    id: chat-analyzer
+    skill: skills/chat-analyzer/SKILL.md
+    summary: Extract dated, structured facts from the slices.
+  - stage: 2-3
+    id: guide-builder
+    skill: skills/guide-builder/SKILL.md
+    summary: Lay facts into topic files and assemble the README (guide|personal).
+    template: templates/
+  - stage: 4
+    id: fact-checker
+    skill: skills/fact-checker/SKILL.md
+    summary: Verify, date, de-stale, tag confidence, cross-check official sources.
+
+modes:
+  guide: Impersonal, shareable country guide (README_guide.md).
+  personal: Personal move plan with checklist and dated timeline (README_personal.md).
+
+inputs:
+  export: A Telegram Desktop JSON export (messages[] array).
+  country: Target country/city.
+  period: Recency window, e.g. "last 6 months".

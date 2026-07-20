@@ -1,0 +1,19 @@
+# Chat exports — never commit raw user data (may contain PII)
+*.json
+!examples/**/*.json
+exports/
+
+# Intermediate topic slices (pipeline stage 0)
+**/_slices/
+_slices/
+
+# Generated country guides (users build their own)
+/countries/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
