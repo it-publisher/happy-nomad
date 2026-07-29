@@ -38,7 +38,7 @@
 # 0. Поставь Nushell (на нём работает слайсер) — https://www.nushell.sh/
 #    macOS: brew install nushell · Windows: winget install nushell · cargo: cargo install nu
 
-git clone https://github.com/<you>/happy-nomad
+git clone https://github.com/it-publisher/happy-nomad
 cd happy-nomad
 
 # 1. Установи скиллы под свой клиент (пример для Claude Code)

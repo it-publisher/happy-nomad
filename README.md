@@ -38,7 +38,7 @@ The big win is **stage 0**: a 20k+ message export never fits in a model's contex
 # 0. Install Nushell (the slicer runs on it) — https://www.nushell.sh/
 #    macOS: brew install nushell · Windows: winget install nushell · cargo: cargo install nu
 
-git clone https://github.com/<you>/happy-nomad
+git clone https://github.com/it-publisher/happy-nomad
 cd happy-nomad
 
 # 1. Install the skills for your client (Claude Code example)
