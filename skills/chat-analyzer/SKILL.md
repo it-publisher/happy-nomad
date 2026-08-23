@@ -7,11 +7,11 @@ description: Stage 1 of the Happy Nomad pipeline. Extract structured, dated, pra
 
 ## When to use
 
-After **chat-slicer** produced `<country>_src/_slices/<topic>.txt`. Turn raw messages into structured facts.
+After **chat-slicer** produced `<country>/<country>_src/_slices/<topic>.txt`. Turn raw messages into structured facts.
 
 ## Input / output
 
-- **Input**: one or more `<country>_src/_slices/<topic>.txt` files + the period of interest (e.g. last 6 months).
+- **Input**: one or more `<country>/<country>_src/_slices/<topic>.txt` files + the period of interest (e.g. last 6 months).
 - **Output**: a structured fact list per topic, ready for **guide-builder** to lay out.
 
 ## What to extract
@@ -47,7 +47,7 @@ Pass the fact lists to **guide-builder** (stages 2–3). Verification happens la
 
 **Этап 1 — извлечение.** После `chat-slicer` превращаем сырые сообщения в структурированные факты.
 
-- **Вход**: `<страна>_src/_slices/<тема>.txt` + период актуальности.
+- **Вход**: `<страна>/<страна>_src/_slices/<тема>.txt` + период актуальности.
 - **Выход**: список фактов по темам для `guide-builder`.
 
 Что извлекать: цены (всегда с датой и валютой, диапазоны), правила и процедуры (визы, аренда, лимиты обмена), места (районы с плюсами/минусами и безопасностью), ресурсы (ссылки, чаты, контакты), паттерны (инфляция, сезонность).

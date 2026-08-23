@@ -3,19 +3,22 @@
 # A message matching ANY line is dropped from every slice.
 #
 # Keep patterns TIGHT — over-filtering removes real messages.
-# This is a generic starter list; add chat-specific ad handles and brands
-# (e.g. a spammy rental bot's @name) as you notice them.
-#
+# This is a deliberately small generic list. The useful patterns are always
+# chat-specific: add the ad bots, agencies and promo phrasings you see in
+# YOUR export. Dedup already collapses identical reposts, so what you add
+# here is for ads that are unique every time.
+
 # --- generic ad phrasing ---
 под ключ
 оформление внж
 turnkey (relocation|residency)
-# --- promo signature clusters (ads love emoji walls) ---
-🛞
-🔥.*🔥
+гарантия лучшей цены
+best price guaranteed
+
 # --- referral / booking CTAs repeated by ad bots ---
-забронировать (мото|авто|тур)
-book (your|the) (ride|scooter|car) now
-# --- example chat-specific handles (edit for your chat) ---
-rentvipcarargentina
-terra nostra
+забронировать (мото|авто|тур|байк)
+book (your|the) (ride|scooter|car|tour) now
+промокод
+promo ?code
+
+# --- add your chat's ad handles below, one per line ---

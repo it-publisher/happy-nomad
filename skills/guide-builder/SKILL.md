@@ -11,11 +11,19 @@ After **chat-analyzer** produced fact lists. Build the country folder.
 
 ## Procedure
 
-1. **Scaffold** — copy the template into a new country folder:
+1. **Scaffold** — the country folder already exists (chat-slicer created it for the sources). Copy the stubs in beside them:
    ```bash
-   cp -r templates <country>/   # e.g. chile/
+   cp templates/*.md <country>/     # e.g. chile/
    ```
-   Sources stay separate in `<country>_src/` — the export, the slices, and any per-country config. Only `<country>/` is meant to be shared or published; `*_src/` is gitignored.
+   ⚠️ Not `cp -r templates <country>/` — with the folder already there that nests a `templates/` directory inside it.
+
+   Layout after this step:
+   ```
+   chile/
+   ├── README_guide.md, Housing.md, …   # stubs to fill
+   └── chile_src/                       # sources, gitignored
+   ```
+   The Markdown comes out ready to publish — stage 4 de-identifies it before you ship.
 2. **Lay out (stage 2)** — fill each topic stub (`Housing.md`, `Visa_Documents.md`, `Budget.md`, ...) from the matching fact list. Keep the section structure; drop topic files with no data instead of leaving empty placeholders.
 3. **Assemble (stage 3)** — pick the README mode, rename it to `README.md`, delete the other:
 
@@ -44,7 +52,7 @@ Send the assembled folder to **fact-checker** (stage 4) before shipping.
 
 **Этапы 2–3 — раскладка и сборка.** После `chat-analyzer` собираем папку страны.
 
-1. **Скелет**: `cp -r templates <country>/`. Исходники остаются отдельно, в `<country>_src/`: экспорт, срезы, свои конфиги. Наружу уходит только `<country>/`, а `*_src/` в gitignore.
+1. **Скелет**: папка страны уже создана на этапе 0 под исходники, поэтому кладём стабы рядом с ними: `cp templates/*.md <страна>/`. ⚠️ Не `cp -r templates <страна>/` — так внутрь ляжет лишний каталог `templates/`. Наружу уходят файлы Markdown — этап 4 готовит их к публикации.
 2. **Раскладка (этап 2)**: наполняешь тематические стабы (`Housing.md`, `Visa_Documents.md`, ...) из фактов. Сохраняешь структуру секций; тему без данных — удаляешь, а не оставляешь пустой.
 3. **Сборка (этап 3)**: выбираешь режим README, переименовываешь в `README.md`, второй удаляешь:
    - **guide** (`README_guide.md`) — публичный обезличенный гайд.

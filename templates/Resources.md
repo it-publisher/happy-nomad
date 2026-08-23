@@ -2,7 +2,7 @@
 
 > Source: [chat] · Updated: [date] · Period: [range]
 
-<!-- TODO: fill from <country>_src/_slices/resources.txt -->
+<!-- TODO: fill from <country>/<country>_src/_slices/resources.txt -->
 
 ## Telegram channels & chats
 
