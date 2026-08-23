@@ -1,3 +1,6 @@
+# Source folders: raw exports, slices, per-country configs. Never committed.
+*_src/
+
 # Chat exports — never commit raw user data (may contain PII)
 *.json
 # ...but keep config and example data (these are not raw user exports)

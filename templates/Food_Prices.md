@@ -2,7 +2,7 @@
 
 > Source: [chat] · Updated: [date] · Period: [range]
 
-<!-- TODO: fill from _slices/food.txt -->
+<!-- TODO: fill from <country>_src/_slices/food.txt -->
 
 ## Food budget
 

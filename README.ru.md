@@ -44,11 +44,11 @@ cd happy-nomad
 # 1. Установи скиллы под свой клиент (пример для Claude Code)
 cp -r skills/* ~/.claude/skills/
 
-# 2. Положи экспорт рядом с движком
-mkdir -p exports && cp ~/Downloads/result.json exports/chile.json
+# 2. Положи экспорт в папку исходников страны
+mkdir -p chile_src && cp ~/Downloads/result.json chile_src/result.json
 
-# 3. Нарежь по темам (этап 0)
-nu scripts/slice.nu exports/chile.json _slices
+# 3. Нарежь по темам (этап 0) — срезы лягут в chile_src/_slices/
+nu scripts/slice.nu chile_src/result.json
 
 # 4. Дай команду агенту
 #    «Собери гайд по стране Чили, режим guide, период — последние 6 месяцев»
@@ -84,6 +84,24 @@ happy-nomad/
 ├── agents/openai.yaml # адаптер для Codex (другие клиенты игнорируют)
 └── README.md
 ```
+
+### Гайд и исходники разделены
+
+Пайплайн пишет в две папки на страну, и в этом разделении весь смысл:
+
+```
+chile/              # гайд — только Markdown, публиковать безопасно
+├── README.md
+├── Housing.md
+└── ...
+
+chile_src/          # исходники — в gitignore, никуда не уезжают
+├── result.json         # сырой экспорт чата (это чужие сообщения)
+├── topics.json         # свои регулярки для страны, если нужны
+└── _slices/            # промежуточные срезы по темам
+```
+
+`*_src/` лежит в `.gitignore`. Сырой экспорт — это тысячи сообщений людей, которые не соглашались на публикацию. Отдельная игнорируемая папка означает, что неосторожный `git add -A` их не заберёт.
 
 ---
 

@@ -2,7 +2,7 @@
 
 > Source: [chat] + official sites · Updated: [date] · Period: [range]
 
-<!-- TODO: fill from _slices/visa.txt. Verify all visa facts against an official source. -->
+<!-- TODO: fill from <country>_src/_slices/visa.txt. Verify all visa facts against an official source. -->
 
 ## 🎯 TL;DR
 

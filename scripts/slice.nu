@@ -9,7 +9,9 @@
 #   - spam:   patterns in scripts/spam.txt are dropped (tune per chat).
 #
 # Usage:
-#   nu scripts/slice.nu <export.json> [out_dir] [topics.json]
+#   nu scripts/slice.nu <country>_src/result.json [out_dir] [topics.json]
+#
+# Без out_dir срезы ложатся рядом с экспортом: <country>_src/_slices/
 #
 # Output: <out_dir>/<topic>.txt, one line per message: "<ISO date>\t<text>"
 
@@ -29,8 +31,10 @@ def norm-text [m] {
   }
 }
 
-def main [export: string, out: string = "_slices", topics: string = ""] {
+def main [export: string, out: string = "", topics: string = ""] {
   let script_dir = $env.FILE_PWD
+  # По умолчанию срезы ложатся рядом с экспортом: <country>_src/result.json → <country>_src/_slices
+  let out = (if ($out | is-empty) { ($export | path dirname | path join "_slices") } else { $out })
   let topics_path = (if ($topics | is-empty) { $script_dir | path join "topics.json" } else { $topics })
   let spam_path = ($script_dir | path join "spam.txt")
 

@@ -2,7 +2,7 @@
 
 > Source: [chat] · Updated: [date] · Period: [range]
 
-<!-- TODO: fill from _slices/healthcare.txt. Organizational info only — no medical advice. -->
+<!-- TODO: fill from <country>_src/_slices/healthcare.txt. Organizational info only — no medical advice. -->
 
 ## System
 

@@ -2,7 +2,7 @@
 
 > Source: [chat] · Updated: [date] · Period: [range]
 
-<!-- TODO: fill from _slices/neighborhoods.txt -->
+<!-- TODO: fill from <country>_src/_slices/neighborhoods.txt -->
 
 ## Overview
 

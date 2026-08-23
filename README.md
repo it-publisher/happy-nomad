@@ -44,11 +44,11 @@ cd happy-nomad
 # 1. Install the skills for your client (Claude Code example)
 cp -r skills/* ~/.claude/skills/
 
-# 2. Put your export next to the engine
-mkdir -p exports && cp ~/Downloads/result.json exports/chile.json
+# 2. Put your export in the country's source folder
+mkdir -p chile_src && cp ~/Downloads/result.json chile_src/result.json
 
-# 3. Slice it by topic (stage 0)
-nu scripts/slice.nu exports/chile.json _slices
+# 3. Slice it by topic (stage 0) — slices land in chile_src/_slices/
+nu scripts/slice.nu chile_src/result.json
 
 # 4. Ask your agent
 #    "Build a country guide for Chile, mode: guide, period: last 6 months"
@@ -84,6 +84,24 @@ happy-nomad/
 ├── agents/openai.yaml # Codex adapter (other clients ignore it)
 └── README.md
 ```
+
+### Guide and sources are separate
+
+The pipeline writes into two folders per country, and the split is the point:
+
+```
+chile/              # the guide — Markdown only, safe to publish
+├── README.md
+├── Housing.md
+└── ...
+
+chile_src/          # sources — gitignored, never leaves your machine
+├── result.json         # raw chat export (contains other people's messages)
+├── topics.json         # optional per-country keyword overrides
+└── _slices/            # intermediate topic slices
+```
+
+`*_src/` is in `.gitignore`. A raw export holds thousands of messages written by people who never agreed to be published — keeping it in a separate, ignored folder means it cannot be committed by a careless `git add -A`.
 
 ---
 

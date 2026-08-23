@@ -2,7 +2,7 @@
 
 > Source: [chat] · Updated: [date] · Period: [range]
 
-<!-- TODO: fill from _slices/currency.txt -->
+<!-- TODO: fill from <country>_src/_slices/currency.txt -->
 
 ## Rates
 
