@@ -12,12 +12,27 @@ The last step, always. A guide is not "done" until it passes this pass.
 ## Checklist (run per topic file)
 
 - [ ] **Date on every figure.** A price/rate without a message date is removed.
-- [ ] **Freshness.** Data older than ~6 months is marked `⚠️ stale (date)` or dropped.
+- [ ] **Freshness.** Every figure gets a staleness mark from the scale below.
 - [ ] **Contradictions.** Conflicting numbers → a range with a note on the spread, never one invented value.
 - [ ] **Confidence tags.** Disputed facts labeled `✅ confirmed (N msgs)` / `⚠️ single mention` / `❓ needs check`.
 - [ ] **Official cross-check.** Legal, visa, tax and border-rule claims verified against an official source, not only the chat.
 - [ ] **No hallucination.** Anything absent from the slices is absent from the guide; thin topics are honestly marked "insufficient data".
 - [ ] **De-identified.** Run the pass below — this is a step, not a glance.
+
+## Staleness scale
+
+Age is counted **from today, not from the day you analysed the chat.** A guide built six months ago has to be re-scored, not trusted.
+
+| Mark | Age of the data | How to use it |
+|------|-----------------|---------------|
+| *(none)* | under 3 months | a working figure |
+| `⚠️ approximate (date)` | 3–6 months | an order of magnitude, not a fact |
+| `⚠️ stale (date)` | over 6 months | do not use without re-checking |
+
+Two corrections to the scale:
+
+- **Currency decides.** In a high-inflation economy, prices in local currency rot several times faster than dollar-denominated ones. A six-month-old peso price is rubbish; a dollar price of the same age is an approximation.
+- **Rules outlive figures.** "You need a SUBE card to ride" or "carrier A is steadier than B" stays true long after the specific tariff is garbage. Mark the amount stale, not the whole point.
 
 ## De-identification pass (required)
 
@@ -69,12 +84,27 @@ The engine's credibility is this stage. A wrong dated figure is recoverable; a c
 Чек-лист по каждому файлу:
 
 - дата у каждой цифры; без даты — удаляем;
-- данные старше ~6 мес → `⚠️ устарело (дата)` или убрать;
+- срок годности: каждая цифра получает метку по шкале ниже;
 - противоречия → диапазон + отметка разброса, не выдуманное значение;
 - метки уверенности: `✅ подтверждено (N)` / `⚠️ единичное` / `❓ проверить`;
 - визовые/налоговые/юридические факты — сверить с официальным источником, не только с чатом;
 - чего нет в срезах — того нет в гайде; тонкие темы честно помечаем;
 - **обезличено** — прогон ниже, это шаг, а не беглый взгляд.
+
+### Шкала срока годности
+
+Возраст считается **от сегодняшней даты, а не от даты анализа.** Гайд, собранный полгода назад, надо переоценивать заново.
+
+| Метка | Возраст данных | Как использовать |
+|-------|----------------|------------------|
+| *(без метки)* | до 3 месяцев | рабочая цифра |
+| `⚠️ ориентир (дата)` | 3–6 месяцев | порядок величины, не факт |
+| `⚠️ устарело (дата)` | больше 6 месяцев | без перепроверки не использовать |
+
+Две поправки к шкале:
+
+- **Валюта решает.** В стране с высокой инфляцией цены в местной валюте протухают в разы быстрее, чем номинированные в долларах. Песо-цену полугодовой давности выкидывай, долларовую того же возраста помечай ориентиром.
+- **Правила живут дольше цифр.** «Для проезда нужна карта SUBE» или «оператор A стабильнее B» остаются верными, когда конкретный тариф уже мусор. Помечай устаревшей саму сумму, а не весь пункт.
 
 ### Обезличивание (обязательный шаг)
 
