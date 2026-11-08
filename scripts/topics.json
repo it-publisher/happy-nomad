@@ -1,13 +1,13 @@
 {
-  "housing":       "аренд|депозит|залог|снять|сдам|сниму|квартир|жиль[её]|студи|комнат|хозя(ин|йка)|риелтор|коммуналк|rent|deposit|apartment|studio|room|lease|landlord|housing|utilities",
+  "housing":       "аренд|депозит|залог|снять|сдам|сниму|квартир|жиль[её]|студи|комнат|хозя(ин|йка)|риелтор|коммуналк|\\brent|deposit|apartment|studio|room|\\blease|landlord|housing|utilities",
   "neighborhoods":       "район|где жить|где селит|безопасн|криминал|воров|тихо|шумно|центр|окраин|neighbo|district|\\barea\\b|safe|crime|noisy|quiet|where to live|downtown|suburb",
   "budget":       "бюджет|расход|прожит|в месяц|сколько стоит|сколько нужно|хватает|дешевл|дорого|budget|cost of living|per month|monthly|expenses|how much|cheap|expensive",
   "visa":       "виз[аоуы]|визов|резиденц|\\bВНЖ\\b|продл(ить|ение)|оверстей|визаран|штамп|иммиграц|депорт|граница|консульств|visa|residence|permit|overstay|border run|immigration|stamp|deport|consulate",
-  "currency":       "курс|обмен|обменник|наличн|перевод|комисси|снятие|банкомат|карт[аыуеой]|счёт в банке|USDT|крипт|exchange|\\brate\\b|cash|transfer|withdraw|\\bATM\\b|\\bP2P\\b|crypto|bank account|bank card",
+  "currency":       "\\bкурс|обмен|обменник|наличн|перевод|комисси|снятие|банкомат|карт[аыуеой]|счёт в банке|USDT|крипт|exchange|\\brate\\b|cash|transfer|withdraw|\\bATM\\b|\\bP2P\\b|crypto|bank account|bank card",
   "internet":       "интернет|скорост|Мбит|\\bсим\\b|симк|мобильн|оператор|тариф|роутер|коворкинг|связь|internet|Wi-?Fi|Mbps|\\bSIM\\b|eSIM|carrier|provider|coworking|mobile plan",
   "food":       "цен[аы]|супермаркет|рынок|продукт|мясо|фрукт|овощ|кафе|ресторан|доставк|готовк|\\bкг\\b|price|supermarket|market|grocery|meat|fruit|cafe|restaurant|delivery|cooking|\\bkg\\b",
-  "transport":       "метро|автобус|такси|байк|скутер|мотоцикл|мопед|аренда авто|права|водительск|штраф|полиц|транспорт|бензин|аэропорт|metro|\\bbus\\b|taxi|scooter|motorbike|car rental|licen[cs]e|fine|police|transit|fuel|airport",
+  "transport":       "метро|автобус|такси|байк|скутер|мотоцикл|мопед|аренда авто|\\bправа|водительск|штраф|полиц|транспорт|бензин|аэропорт|metro|\\bbus\\b|taxi|scooter|motorbike|car rental|licen[cs]e|fine|police|transit|fuel|airport",
   "healthcare":       "врач|клиник|больниц|госпитал|аптек|лекарств|препарат|рецепт|страхов|прививк|стоматолог|doctor|clinic|hospital|pharmacy|medicine|prescription|insurance|vaccin|dentist",
-  "weather":       "погод|сезон|дожд|ливен|ливн|сухой сезон|жар[ака]|духот|влажност|тайфун|шторм|затопи|наводнен|плесен|кондиционер|отоплен|weather|season|rain|humid|typhoon|storm|flood|mold|mould|heat|\\bAC\\b|air.?con|heating",
-  "resources":       "t\\.me|https?://|канал|группа|чат|\\bбот\\b|контакт|channel|group|\\bchat\\b|\\bbot\\b|contact|@[A-Za-z0-9_]{5,}"
+  "weather":       "погод|сезон|дожд|ливен|ливн|сухой сезон|\\bжар[ака]|духот|влажност|тайфун|шторм|затопи|наводнен|плесен|кондиционер|отоплен|weather|season|rain|humid|typhoon|storm|flood|mold|mould|heat|\\bAC\\b|air.?con|heating",
+  "resources":       "t\\.me|https?://|канал|группа|\\bчат|\\bбот\\b|контакт|channel|group|\\bchat\\b|\\bbot\\b|contact|@[A-Za-z0-9_]{5,}"
 }

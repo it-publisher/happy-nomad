@@ -145,7 +145,8 @@ chile/                  # one folder per destination
 ├── ...
 └── chile_src/          # sources — gitignored, stays on your machine
     ├── result.json         # raw chat export (other people's messages)
-    ├── topics.json         # optional per-country keyword overrides
+    ├── topics.json         # optional: replaces scripts/topics.json for this country
+    ├── spam.txt            # optional: extra ad patterns, added to scripts/spam.txt
     └── _slices/            # intermediate topic slices
 ```
 

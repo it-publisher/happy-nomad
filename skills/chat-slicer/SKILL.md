@@ -22,7 +22,8 @@ chile/                  # everything about Chile
 ├── Housing.md
 └── chile_src/          # sources — gitignored, stays on your machine
     ├── result.json         # raw chat export
-    ├── topics.json         # optional per-country keyword overrides
+    ├── topics.json         # optional: replaces scripts/topics.json for this country
+    ├── spam.txt            # optional: extra ad patterns, added to scripts/spam.txt
     └── _slices/            # intermediate topic slices
 ```
 
@@ -36,8 +37,9 @@ chile/                  # everything about Chile
    nu scripts/slice.nu <country>/<country>_src/result.json
    ```
    With no output path given, slices land next to the export, in `<country>/<country>_src/_slices/`.
-   It reads `scripts/topics.json` (per-topic keyword regexes, RU+EN) and writes one slice per topic.
-   Noise control runs automatically: identical texts (ad reposts, forwards) are de-duped, and patterns from `scripts/spam.txt` are dropped.
+   It reads `<country>_src/topics.json` if present, otherwise the `scripts/topics.json` base (per-topic keyword regexes, RU+EN), and writes one slice per topic.
+   Noise control runs automatically: identical texts (ad reposts, forwards) are de-duped, and patterns from `scripts/spam.txt` plus `<country>_src/spam.txt` are dropped.
+   The first lines of output name the configs actually used — check them.
 3. Report the per-topic message counts. Thin slices (< ~20 messages) mean the source chat is weak on that topic — flag it; don't invent content later.
 
 ## Message normalization
@@ -50,8 +52,10 @@ if ($m.text_entities? != null) { $m.text_entities | get text | str join } else {
 
 ## Extending
 
-- New topic → add a `"topic": "regex"` line to `scripts/topics.json`. Include RU, EN, and local-language terms (city names, local brands, carriers).
-- Ads leaking through → add a tight regex to `scripts/spam.txt` (e.g. a spammy rental bot's `@name`). Keep patterns precise; over-filtering drops real messages.
+- New topic → add a `"topic": "regex"` line to `topics.json`. Include RU, EN, and local-language terms (city names, local brands, carriers).
+- Country-specific terms → copy `scripts/topics.json` to `<country>_src/topics.json` and extend the copy; the base stays generic.
+- Short roots match inside other words: `чат` hits «получать», `курс` hits «экскурсия». Anchor them to a word start — `\\bчат`. Before adding a root, check what it catches mid-word.
+- Ads leaking through → add a tight regex to `<country>_src/spam.txt` (e.g. a spammy rental bot's `@name`); `scripts/spam.txt` is for generic patterns only. Keep patterns precise; over-filtering drops real messages.
 - Other chat sources (Discord/WhatsApp) → normalize to `{ date, text }` and reuse the same slicer.
 
 ## Next stage
@@ -75,7 +79,8 @@ chile/                  # всё про Чили
 ├── Housing.md
 └── chile_src/          # исходники — в gitignore, остаются у тебя
     ├── result.json         # сырой экспорт чата
-    ├── topics.json         # свои регулярки для страны, если нужны
+    ├── topics.json         # необязательно: заменяет scripts/topics.json для страны
+    ├── spam.txt            # необязательно: свои рекламные паттерны, дополняют scripts/spam.txt
     └── _slices/            # промежуточные срезы по темам
 ```
 
@@ -84,9 +89,9 @@ chile/                  # всё про Чили
 Порядок:
 
 1. Проверь, что установлен Nushell (`nu`) — https://www.nushell.sh/
-2. Запусти `nu scripts/slice.nu <страна>/<страна>_src/result.json` — он читает `scripts/topics.json` (регулярки RU+EN по темам). Без указания пути срезы лягут рядом с экспортом.
+2. Запусти `nu scripts/slice.nu <страна>/<страна>_src/result.json`. Он берёт `<страна>_src/topics.json`, если он есть, иначе базу `scripts/topics.json` (регулярки RU+EN по темам). Спам-паттерны — `scripts/spam.txt` плюс `<страна>_src/spam.txt`. Первые строки вывода называют, какие конфиги реально взяты, — сверь. Без указания пути срезы лягут рядом с экспортом.
 3. Покажи счётчики по темам. Тонкий срез (< ~20 сообщений) = чат слабо покрывает тему; помечай, не выдумывай.
 
-Текст сообщения собирай из `text_entities` (учитывает ссылки, эмодзи). Шумоподавление включено автоматически: дубли (репосты рекламы) схлопываются, паттерны из `scripts/spam.txt` вырезаются. Новая тема — строка в `topics.json`; протекает реклама — добавь точный паттерн в `spam.txt`.
+Текст сообщения собирай из `text_entities` (учитывает ссылки, эмодзи). Шумоподавление включено автоматически: дубли (репосты рекламы) схлопываются, паттерны из `scripts/spam.txt` вырезаются. Новая тема — строка в `topics.json`; местные термины — в копию базы `<страна>_src/topics.json`; протекает реклама — точный паттерн в `<страна>_src/spam.txt`. Короткие корни ловят чужие слова (`чат` → «получать», `курс` → «экскурсия») — привязывай к началу слова: `\\bчат`.
 
 Дальше — скилл **chat-analyzer** (этап 1).

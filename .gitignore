@@ -3,8 +3,8 @@
 
 # Chat exports — never commit raw user data (may contain PII)
 *.json
-# ...but keep config and example data (these are not raw user exports)
-!examples/**/*.json
+# ...except the engine's own config. No exception for examples/: a JSON
+# there is most likely a misplaced export, and it must not slip into a commit.
 !scripts/*.json
 exports/
 
