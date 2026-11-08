@@ -40,6 +40,7 @@
 - [📡 Internet](Internet.md)
 - [🛒 Food prices](Food_Prices.md)
 - [🚗 Transport](Transport.md)
+- [🌧 Weather & seasons](Weather.md)
 - [🏥 Healthcare](Healthcare.md)
 - [🔗 Resources](Resources.md)
 

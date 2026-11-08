@@ -156,7 +156,7 @@ Markdown выходит готовым к публикации: этап 4 об�
 ## Поддерживаемые источники чатов
 
 - **Telegram Desktop** JSON-экспорт (`result.json`) — первоклассно.
-- Другие (Discord, WhatsApp, Reddit): приведи к тому же виду `{ date, text }` — и пайплайн работает. См. `scripts/topics.json`.
+- Другие (Discord, WhatsApp, Reddit): сконвертируй в `{ "messages": [{ "date": "…", "text": "…" }] }` — этот вид читает слайсер — и пайплайн работает.
 
 ---
 

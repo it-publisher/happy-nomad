@@ -159,7 +159,7 @@ The Markdown comes out ready to publish: stage 4 de-identifies it, replacing cha
 ## Supported chat sources
 
 - **Telegram Desktop** JSON export (`result.json`) — first-class.
-- Others (Discord, WhatsApp, Reddit): normalize to the same `{ date, text }` shape and the pipeline works. See `scripts/topics.json`.
+- Others (Discord, WhatsApp, Reddit): convert to `{ "messages": [{ "date": "…", "text": "…" }] }` — the shape the slicer reads — and the pipeline works.
 
 ---
 

@@ -56,7 +56,7 @@ if ($m.text_entities? != null) { $m.text_entities | get text | str join } else {
 - Country-specific terms → copy `scripts/topics.json` to `<country>_src/topics.json` and extend the copy; the base stays generic.
 - Short roots match inside other words: `чат` hits «получать», `курс` hits «экскурсия». Anchor them to a word start — `\\bчат`. Before adding a root, check what it catches mid-word.
 - Ads leaking through → add a tight regex to `<country>_src/spam.txt` (e.g. a spammy rental bot's `@name`); `scripts/spam.txt` is for generic patterns only. Keep patterns precise; over-filtering drops real messages.
-- Other chat sources (Discord/WhatsApp) → normalize to `{ date, text }` and reuse the same slicer.
+- Other chat sources (Discord/WhatsApp) → convert to `{ "messages": [{ "date": "…", "text": "…" }] }` and reuse the same slicer.
 
 ## Next stage
 

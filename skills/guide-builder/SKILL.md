@@ -11,7 +11,7 @@ After **chat-analyzer** produced fact lists. Build the country folder.
 
 ## Procedure
 
-1. **Scaffold** — the country folder already exists (chat-slicer created it for the sources). Copy the stubs in beside them:
+1. **Scaffold** — the country folder already exists — it was created in stage 0 to hold the sources. Copy the stubs in beside them:
    ```bash
    cp templates/*.md <country>/     # e.g. chile/
    ```

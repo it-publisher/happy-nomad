@@ -26,6 +26,7 @@ A standalone guide to living in [city]: visas, housing, budget, currency, connec
 - [📡 Internet](Internet.md)
 - [🛒 Food prices](Food_Prices.md)
 - [🚗 Transport](Transport.md)
+- [🌧 Weather & seasons](Weather.md)
 - [🏥 Healthcare](Healthcare.md)
 - [🔗 Resources](Resources.md)
 
